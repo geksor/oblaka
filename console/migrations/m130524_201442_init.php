@@ -24,10 +24,19 @@ class m130524_201442_init extends Migration
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
         ], $tableOptions);
+
+        $this->createTable('comment', [
+            'id' => $this->primaryKey(),
+            'name' => $this->text()->notNull()->comment('Имя'),
+            'text' => $this->text()->notNull()->comment('Текст отзыва'),
+            'date' => $this->integer(11)->notNull()->comment('Дата добавления'),
+            'publish' => $this->tinyInteger(1)->notNull()->defaultValue(0)->comment('Состояние'),
+        ], $tableOptions);
     }
 
     public function down()
     {
         $this->dropTable('{{%user}}');
+        $this->dropTable('comment');
     }
 }

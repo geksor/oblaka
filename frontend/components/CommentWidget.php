@@ -13,6 +13,8 @@ class CommentWidget extends Widget
     {
         $model = new CommentForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->date = time();
+            $model->save();
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('success', 'Спасибо за ваш отзыв!');
                 $model = new CommentForm();

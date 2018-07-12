@@ -2,14 +2,15 @@
 
 namespace frontend\models;
 
-use Yii;
+use yii\db\ActiveRecord;
+
 
 /**
  * ContactForm is the model behind the contact form.
  */
-class CommentForm extends ContactForm
+class CommentForm extends ActiveRecord
 {
-    public $commentText;
+    use SendEmailTrait;
 
     /**
      * @inheritdoc
@@ -18,8 +19,8 @@ class CommentForm extends ContactForm
     {
         return [
             // name, email, subject and body are required
-            [['name', 'commentText'], 'required', 'message' => 'Заполните поле'],
-            [['subject', 'body'], 'safe'],
+            [['name', 'text'], 'required', 'message' => 'Заполните поле'],
+            [['date', 'subject', 'body'], 'safe'],
         ];
     }
 
@@ -30,23 +31,12 @@ class CommentForm extends ContactForm
     {
         return [
             'name' => 'Имя',
-            'commentText' => 'Текст отзыва'
+            'text' => 'Текст отзыва'
         ];
     }
 
-    /**
-     * Sends an email to the specified email address using the information collected by this model.
-     *
-     * @param string $email the target email address
-     * @return bool whether the email was sent
-     */
-    public function sendEmail($email)
+    public static function tableName()
     {
-        return Yii::$app->mailer->compose()
-            ->setTo($email)
-            ->setFrom(['geksor@gmil.com' => 'Георгий'])
-            ->setSubject($this->subject)
-            ->setTextBody($this->body)
-            ->send();
+        return 'comment';
     }
 }

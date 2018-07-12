@@ -2,17 +2,19 @@
 
 namespace frontend\models;
 
-use Yii;
+use yii\db\ActiveRecord;
 
 /**
  * ContactForm is the model behind the contact form.
  */
-class BuyForm extends ContactForm
+class BuyForm extends ActiveRecord
 {
-    public $class;
-    public $placeCount;
-    public $transfer;
 
+    public $name;
+    public $phone;
+    public $placeCount;
+    public $class;
+    public $transfer;
     /**
      * @inheritdoc
      */
@@ -21,7 +23,7 @@ class BuyForm extends ContactForm
         return [
             // name, email, subject and body are required
             [['name', 'phone', 'placeCount'], 'required', 'message' => 'Заполните поле'],
-            [['subject', 'body', 'class', 'transfer'], 'safe'],
+            [['class', 'transfer'], 'safe'],
         ];
     }
 
@@ -35,21 +37,5 @@ class BuyForm extends ContactForm
             'phone' => 'Телефон',
             'placeCount' => 'Количество мест',
         ];
-    }
-
-    /**
-     * Sends an email to the specified email address using the information collected by this model.
-     *
-     * @param string $email the target email address
-     * @return bool whether the email was sent
-     */
-    public function sendEmail($email)
-    {
-        return Yii::$app->mailer->compose()
-            ->setTo($email)
-            ->setFrom(['geksor@gmil.com' => 'Георгий'])
-            ->setSubject($this->subject)
-            ->setTextBody($this->body)
-            ->send();
     }
 }

@@ -13,12 +13,8 @@ class BuyWidget extends Widget
     {
         $model = new BuyForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
-            if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
-                Yii::$app->session->setFlash('reEvents');
-                $model = new BuyForm();
-            } else {
-                Yii::$app->session->setFlash('error', 'Что то пошло не так.');
-            }
+            Yii::$app->session->setFlash('reEvents');
+            $model = new BuyForm();
         }
         return $this->render('buyWidget', [
             'model' => $model,

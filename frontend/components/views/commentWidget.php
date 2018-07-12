@@ -52,7 +52,7 @@ use yii\bootstrap\ActiveForm;
                         <?= $form->field($model, 'name')->textInput(['placeholder' => "Имя", 'class' => "input"])->label(false) ?>
                     </div>
                     <div class="col-12">
-                        <?= $form->field($model, 'commentText')->textarea(['placeholder' => "Текст отзыва", 'class' => "textArea"])->label(false) ?>
+                        <?= $form->field($model, 'text')->textarea(['placeholder' => "Текст отзыва", 'class' => "textArea"])->label(false) ?>
                     </div>
                     <div class="col-12">
                         <?= Html::submitButton(
