@@ -3098,6 +3098,10 @@ body {
 .commentLine {
   background-color: rgba(232, 239, 240, 0.3);
   padding-bottom: 70px; }
+  .commentLine .slick-track {
+    display: flex; }
+    .commentLine .slick-track .comment {
+      display: flex; }
 
 .comment__title {
   padding: 30px 0; }
@@ -3111,12 +3115,14 @@ body {
 .comment {
   background-color: #ffffff;
   border: solid 1px #dde6e6;
-  padding: 40px 30px; }
+  padding: 40px 30px;
+  height: auto; }
   @media (min-width: 576px) {
     .comment {
       padding: 70px 48px 60px; } }
 
 .comment__name {
+  text-transform: capitalize;
   margin-bottom: 10px; }
 
 .comment__text {

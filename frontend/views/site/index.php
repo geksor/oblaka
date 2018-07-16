@@ -243,54 +243,22 @@ $this->title = 'Облака';
 <div id="comment" class="commentLine">
     <div class="container">
         <h2 class="comment__title">О НАС ГОВОРЯТ</h2>
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-11 col-md-10">
-                <div class="comment__slider">
-                    <div class="comment">
-                        <div class="comment__name">Александр</div>
-                        <div class="comment__text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                        </div>
-                        <div class="comment__date">26 июля 2018 года</div>
-                    </div>
-                    <div class="comment">
-                        <div class="comment__name">Александр</div>
-                        <div class="comment__text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                        </div>
-                        <div class="comment__date">26 июля 2018 года</div>
-                    </div>
-                    <div class="comment">
-                        <div class="comment__name">Александр</div>
-                        <div class="comment__text">
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                            incididunt
-                            ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                            ullamco
-                            laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                            reprehenderit in
-                            voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                        </div>
-                        <div class="comment__date">26 июля 2018 года</div>
+        <? if (!$comments == null) {?>
+            <div class="row justify-content-center">
+                <div class="col-12 col-sm-11 col-md-10">
+                    <div class="comment__slider">
+                        <?foreach ($comments as $comment){?>
+                            <? $pubDate = date('d.m.Y', $comment['date'])?>
+                            <div class="comment flex-column justify-content-between">
+                                <div class="comment__name"><?= $comment['name']?></div>
+                                <div class="comment__text"><?= $comment['text']?></div>
+                                <div class="comment__date"><?= $pubDate?></div>
+                            </div>
+                        <?}?>
                     </div>
                 </div>
             </div>
-        </div>
+        <?}?>
         <div class="row justify-content-center">
             <button class="setCommentBtn popUpBtn persPopUp shadowBtn blueBtn col-7 col-sm-4 col-md-3 col-xl-2" data-action="#comment_form">ОСТАВИТЬ
                 ОТЗЫВ

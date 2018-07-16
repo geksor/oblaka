@@ -13,6 +13,8 @@ class CallBackWidget extends Widget
     {
         $model = new ContactForm();
         if ($model->load(Yii::$app->request->post()) && $model->validate()) {
+            $model->date = time();
+            $model->save();
             if ($model->sendEmail(Yii::$app->params['adminEmail'])) {
                 Yii::$app->session->setFlash('success', 'Мы свяжемся с вами в ближайшее время.');
                 $model = new ContactForm();

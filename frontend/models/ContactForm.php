@@ -11,9 +11,6 @@ class ContactForm extends ActiveRecord
 {
     use SendEmailTrait;
 
-    public $name;
-    public $phone;
-
     /**
      * @inheritdoc
      */
@@ -22,6 +19,7 @@ class ContactForm extends ActiveRecord
         return [
             // name, email, subject and body are required
             [['name', 'phone'], 'required', 'message' => 'Заполните поле'],
+            [['date', 'subject', 'body'], 'safe'],
         ];
     }
 
@@ -35,4 +33,10 @@ class ContactForm extends ActiveRecord
             'phone' => 'Телефон'
         ];
     }
+
+    public static function tableName()
+    {
+        return 'callback';
+    }
+
 }

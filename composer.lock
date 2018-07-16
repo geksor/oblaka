@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "486ae7f9e69bcd1fea506013e9d96011",
+    "content-hash": "3b3f7524a60cf7ef62c07588682b9cf4",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -1042,6 +1042,55 @@
                 "yii2"
             ],
             "time": "2016-01-20T18:10:37+00:00"
+        },
+        {
+            "name": "yiister/yii2-advanced-grid",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiister/yii2-advanced-grid.git",
+                "reference": "fbae484a11a11e0715cee45a29b06afcad29ef25"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiister/yii2-advanced-grid/zipball/fbae484a11a11e0715cee45a29b06afcad29ef25",
+                "reference": "fbae484a11a11e0715cee45a29b06afcad29ef25",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "~2.0.0",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-4": {
+                    "yiister\\grid\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Pavel Fedotov",
+                    "email": "fps.06@mail.ru",
+                    "homepage": "https://github.com/fps01",
+                    "role": "Creator"
+                }
+            ],
+            "description": "Advanced GridView extension for Yii framework 2",
+            "homepage": "https://github.com/yiister/yii2-advanced-grid",
+            "keywords": [
+                "column",
+                "extension",
+                "grid",
+                "grid-view",
+                "utils",
+                "yii2"
+            ],
+            "time": "2016-09-19T14:29:14+00:00"
         }
     ],
     "packages-dev": [
