@@ -62,7 +62,7 @@ AppAsset::register($this);
                                 ]);?>
                             </div>
                             <div class="col-8 col-sm-auto flex justify-content-between">
-                                <a href="#"
+                                <a href="<?= Yii::$app->params['Params']['instaLink'] ?>" target="_blank"
                                    class="socIco_item instagram flex justify-content-center align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                          preserveAspectRatio="xMidYMid" width="24" height="24" viewBox="0 0 24 24">
@@ -70,7 +70,7 @@ AppAsset::register($this);
                                               class="cls-1"/>
                                     </svg>
                                 </a>
-                                <a href="#" class="socIco_item vk flex justify-content-center align-items-center">
+                                <a href="<?= Yii::$app->params['Params']['vkLink'] ?>" target="_blank" class="socIco_item vk flex justify-content-center align-items-center">
                                     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                                          preserveAspectRatio="xMidYMid" width="28.82" height="16"
                                          viewBox="0 0 28.82 16">
@@ -90,7 +90,7 @@ AppAsset::register($this);
                                           d="M16.316,12.071 L14.325,10.079 C13.776,9.530 12.882,9.530 12.333,10.079 L11.428,10.984 C11.012,11.401 10.335,11.400 9.920,10.985 L5.996,7.058 C5.579,6.641 5.579,5.966 5.996,5.549 C6.142,5.404 6.560,4.985 6.901,4.644 C7.448,4.098 7.455,3.207 6.901,2.653 L4.910,0.668 C4.361,0.119 3.467,0.119 2.920,0.667 C2.510,1.073 2.378,1.204 2.194,1.386 C0.214,3.365 0.214,6.587 2.194,8.567 L8.411,14.786 C10.395,16.770 13.607,16.770 15.592,14.786 L16.316,14.062 C16.865,13.513 16.865,12.620 16.316,12.071 ZM3.582,1.332 C3.765,1.149 4.063,1.149 4.246,1.332 L6.237,3.317 C6.421,3.500 6.421,3.797 6.237,3.981 L5.905,4.312 L3.252,1.659 L3.582,1.332 ZM9.075,14.122 L2.858,7.903 C1.326,6.371 1.242,3.966 2.599,2.334 L5.245,4.979 C4.549,5.767 4.578,6.968 5.332,7.722 L9.255,11.648 C9.255,11.648 9.255,11.648 9.256,11.648 C10.008,12.401 11.209,12.432 11.998,11.735 L14.644,14.381 C13.017,15.736 10.617,15.664 9.075,14.122 ZM15.653,13.398 L15.321,13.730 L12.665,11.075 L12.997,10.743 C13.180,10.560 13.478,10.560 13.661,10.743 L15.653,12.735 C15.836,12.917 15.836,13.215 15.653,13.398 Z"/>
                                 </svg>
                             </div>
-                            <span><a href="tel:+79267327264">+ 7 (926) 732-72-64</a></span>
+                            <span><a href="tel:+79267327264"><?= Yii::$app->params['Params']['phone'] ?></a></span>
                         </div>
                     </div>
                 </div>
@@ -188,14 +188,14 @@ AppAsset::register($this);
                     2018 (с) Все права защищены
                 </p>
                 <div class="footer__socIco col-auto flex">
-                    <a href="#" class="socIco_item instagram flex justify-content-center align-items-center">
+                    <a href="<?= Yii::$app->params['Params']['instaLink'] ?>" target="_blank" class="socIco_item instagram flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              preserveAspectRatio="xMidYMid" width="24" height="24" viewBox="0 0 24 24">
                             <path d="M2.621,6.056 C2.621,4.159 4.165,2.615 6.062,2.615 L17.950,2.615 C19.847,2.615 21.391,4.159 21.391,6.056 L21.391,17.943 C21.391,19.841 19.847,21.384 17.950,21.384 L6.062,21.384 C4.165,21.384 2.621,19.841 2.621,17.943 L2.621,6.056 L2.621,6.056 ZM6.062,0.004 C2.725,0.004 0.010,2.719 0.010,6.056 L0.010,17.943 C0.010,21.281 2.725,23.995 6.062,23.995 L17.950,23.995 C21.287,23.995 24.001,21.281 24.001,17.943 L24.001,6.056 C24.001,2.719 21.287,0.004 17.950,0.004 L6.062,0.004 L6.062,0.004 ZM12.006,5.821 C8.599,5.821 5.827,8.593 5.827,11.999 C5.827,15.406 8.599,18.178 12.006,18.178 C15.413,18.178 18.185,15.406 18.185,11.999 C18.185,8.593 15.413,5.821 12.006,5.821 L12.006,5.821 ZM8.437,11.999 C8.437,13.967 10.039,15.568 12.006,15.568 C13.973,15.568 15.573,13.967 15.573,11.999 C15.573,10.033 13.973,8.432 12.006,8.432 C10.039,8.432 8.437,10.033 8.437,11.999 L8.437,11.999 ZM16.921,5.637 C16.921,6.443 17.577,7.098 18.384,7.098 C19.190,7.098 19.845,6.443 19.845,5.637 C19.845,4.830 19.190,4.175 18.384,4.175 C17.577,4.175 16.921,4.830 16.921,5.637 Z"
                                   class="cls-1"/>
                         </svg>
                     </a>
-                    <a href="#" class="socIco_item vk flex justify-content-center align-items-center">
+                    <a href="<?= Yii::$app->params['Params']['vkLink'] ?>" target="_blank" class="socIco_item vk flex justify-content-center align-items-center">
                         <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                              preserveAspectRatio="xMidYMid" width="28.82" height="16"
                              viewBox="0 0 28.82 16">

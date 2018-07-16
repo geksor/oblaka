@@ -287,7 +287,7 @@ $this->title = 'Облака';
                                 </svg>
                             </div>
                             <p class="content">
-                                г. Ставрополь, ул. Мира 242/1
+                                <?= Yii::$app->params['Params']['address'] ?>
                             </p>
                         </div>
                         <div class="col-12 flex align-items-start contactItem">
@@ -301,7 +301,7 @@ $this->title = 'Облака';
                                 </svg>
                             </div>
                             <p class="content">
-                                <a href="tel:+79267327264">+ 7 (926) 732-72-64</a>
+                                <a href="tel:+79267327264"><?= Yii::$app->params['Params']['phone'] ?></a>
                             </p>
                         </div>
                         <div class="col-12 flex align-items-start contactItem">
@@ -315,7 +315,7 @@ $this->title = 'Облака';
                                 </svg>
                             </div>
                             <p class="content">
-                                <a href="mailto:info@clouds_holyday">info@clouds_holyday</a>
+                                <a href="mailto:info@clouds_holyday"><?= Yii::$app->params['Params']['admin_email'] ?></a>
                             </p>
                         </div>
                     </div>
