@@ -195,7 +195,7 @@ desired effect
                     </li>
                     <!-- Control Sidebar Toggle Button -->
                     <li>
-                        <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+                        <a href="/admin/params"><i class="fa fa-gears"></i></a>
                     </li>
                 </ul>
             </div>
@@ -242,14 +242,12 @@ desired effect
 
                         ],
                         [
-                            "label" => "Widgets",
+                            "label" => "Места",
                             "icon" => "th",
                             "url" => "#",
                             "items" => [
-                                ["label" => "Menu", "url" => ["site/menu"]],
-                                ["label" => "Boxes", "url" => ["site/boxes"]],
-                                ["label" => "FlashAlert", "url" => ["site/flash-alert"]],
-                                ["label" => "Callouts", "url" => ["site/callouts"]],
+                                ["label" => "Места", "url" => ["site/boxes"]],
+                                ["label" => "Продажи", "url" => ["site/flash-alert"]],
                             ],
                         ],
                         [
