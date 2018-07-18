@@ -3,6 +3,7 @@
 use yii\helpers\Html;
 
 /* @var $this yii\web\View */
+/* @var $modelUpload backend\models\UploadImage */
 /* @var $model backend\models\Places */
 
 $this->title = 'Update Places: ' . $model->id;
@@ -16,6 +17,7 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <?= $this->render('_form', [
         'model' => $model,
+        'modelUpload' => $modelUpload,
     ]) ?>
 
 </div>

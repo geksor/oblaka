@@ -8,6 +8,9 @@ use backend\models\PlacesSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
+use backend\models\UploadImage;
+use yiister\grid\actions\ColumnUpdateAction;
 
 /**
  * PlacesController implements the CRUD actions for Places model.
@@ -65,13 +68,16 @@ class PlacesController extends Controller
     public function actionCreate()
     {
         $model = new Places();
+        $modelUpload = new UploadImage();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $modelUpload->upload();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
+            'modelUpload' => $modelUpload,
         ]);
     }
 
@@ -85,14 +91,27 @@ class PlacesController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $modelUpload = new UploadImage();
+
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $modelUpload->upload();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [
             'model' => $model,
+            'modelUpload' => $modelUpload,
         ]);
+    }
+
+    public function actionUpdateColumn($id, $val)
+    {
+        $model = $this->findModel($id);
+        $model->count = $val;
+        $model->update();
+
+        return $this->redirect(['index']);
     }
 
     /**
@@ -107,6 +126,15 @@ class PlacesController extends Controller
         $this->findModel($id)->delete();
 
         return $this->redirect(['index']);
+    }
+
+    public function actionUpload(){
+        $model = new UploadImage();
+        if(Yii::$app->request->isPost){
+            $model->upload();
+            return;
+        }
+        return $this->render('upload', ['model' => $model]);
     }
 
     /**

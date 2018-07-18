@@ -35,6 +35,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <![endif]-->
     <?php $this->head() ?>
     <style>
+        .placeCount{
+            margin-right: 30px;
+        }
         @media(min-width:767px){
             .userIco{
                 display: flex;
@@ -246,7 +249,7 @@ desired effect
                             "icon" => "th",
                             "url" => "#",
                             "items" => [
-                                ["label" => "Места", "url" => ["site/boxes"]],
+                                ["label" => "Места", "url" => ["/places"]],
                                 ["label" => "Продажи", "url" => ["site/flash-alert"]],
                             ],
                         ],
