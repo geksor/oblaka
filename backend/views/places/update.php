@@ -6,10 +6,10 @@ use yii\helpers\Html;
 /* @var $modelUpload backend\models\UploadImage */
 /* @var $model backend\models\Places */
 
-$this->title = 'Update Places: ' . $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Places', 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
-$this->params['breadcrumbs'][] = 'Update';
+$this->title = 'Изменение места: ' . $model->type;
+$this->params['breadcrumbs'][] = ['label' => 'Места', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $model->type;
+
 ?>
 <div class="places-update">
 

@@ -67,12 +67,18 @@ class PlacesController extends Controller
      */
     public function actionCreate()
     {
+
         $model = new Places();
         $modelUpload = new UploadImage();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $modelUpload->upload();
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $modelUpload->load(Yii::$app->request->post());
+            $modelUpload->image = UploadedFile::getInstance($modelUpload, 'image');
+            if ($modelUpload->image != null){
+                $model->image = $modelUpload->upload($model->image);
+            }
+            $model->save();
+            return $this->redirect('index');
         }
 
         return $this->render('create', [
@@ -90,13 +96,19 @@ class PlacesController extends Controller
      */
     public function actionUpdate($id)
     {
+
         $model = $this->findModel($id);
         $modelUpload = new UploadImage();
 
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            $modelUpload->upload();
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $modelUpload->load(Yii::$app->request->post());
+            $modelUpload->image = UploadedFile::getInstance($modelUpload, 'image');
+            if ($modelUpload->image != null){
+                $model->image = $modelUpload->upload($model->image);
+            }
+            $model->save();
+            return $this->redirect('index');
         }
 
         return $this->render('update', [
@@ -123,7 +135,11 @@ class PlacesController extends Controller
      */
     public function actionDelete($id)
     {
-        $this->findModel($id)->delete();
+        $model = $this->findModel($id);
+        $modelUpload = new UploadImage();
+
+        $modelUpload->upload($model->image);
+        $model->delete();
 
         return $this->redirect(['index']);
     }

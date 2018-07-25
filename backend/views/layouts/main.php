@@ -38,6 +38,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
         .placeCount{
             margin-right: 30px;
         }
+        .crop .workarea-cropbox, .crop .bg-cropbox {
+            height: 500px;
+            min-height: 500px;
+            width: 650px;
+            min-width: 650px;
+        }
         @media(min-width:767px){
             .userIco{
                 display: flex;
