@@ -1,17 +1,9 @@
 <?php
 namespace frontend\controllers;
 
+use frontend\models\Places;
 use Yii;
-use yii\base\InvalidParamException;
-use yii\web\BadRequestHttpException;
 use yii\web\Controller;
-use yii\filters\VerbFilter;
-use yii\filters\AccessControl;
-use common\models\LoginForm;
-use frontend\models\PasswordResetRequestForm;
-use frontend\models\ResetPasswordForm;
-use frontend\models\SignupForm;
-use frontend\models\ContactForm;
 use frontend\models\CommentForm;
 
 /**
@@ -48,6 +40,7 @@ class SiteController extends Controller
             ->where(['and', 'publish=1', ['<', 'date', time()]])
             ->orderBy(['date' => SORT_DESC])
             ->asArray()->all();
-        return $this->render('index', ['comments' => $comments]);
+        $places = Places::find()->asArray()->all();
+        return $this->render('index', ['comments' => $comments, 'places' => $places]);
     }
 }

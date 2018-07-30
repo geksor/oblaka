@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     'format' => ['date', 'php:d.m.Y - H:m'],
                 ],
                 [
-                    'attribute' => 'publish',
+                        'attribute' => 'publish',
                     'filter'=>[0=>"Не опубликованные",1=>"Опубликованные"],
                     'headerOptions' => ['width' => '170'],
                     'format' => 'raw',

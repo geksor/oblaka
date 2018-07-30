@@ -38,20 +38,8 @@ var agreeAdres = '';
         price = $(this).data('price');
         var $class = $('#class');
         var $classShow = $('#class_show');
-        switch ($(this).attr('id')){
-            case 'standard':
-                $class.val('стандарт');
-                $classShow.children('span').text('стандарт');
-                break;
-            case 'vip':
-                $class.val('vip');
-                $classShow.children('span').text('vip');
-                break;
-            case 'economy':
-                $class.val('эконом');
-                $classShow.children('span').text('эконом');
-                break;
-        }
+        $class.val($(this).attr('id'));
+        $classShow.children('span').text($(this).data('type'));
         //endReserveForm
         $(openForm).show('fade', 400).addClass('panel-open');
         $('.page').addClass('panel-open');

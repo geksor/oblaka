@@ -1,6 +1,8 @@
 <?php
 
 /* @var $this yii\web\View */
+/* @var $comments app\controllers\ */
+/* @var $places app\controllers\ */
 
 $this->title = 'Облака';
 ?>
@@ -75,51 +77,23 @@ $this->title = 'Облака';
             fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
             deserunt mollit anim id est
         </p>
-        <div class="reserve__row flex flex-wrap">
-            <div class="reserve__text flex flex-column justify-content-between align-items-center col-12 col-md-6">
-                <h3 class="reserve__blockTitle">СТАНДАРТ</h3>
-                <p class="reserve__blockDescription">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea
-                </p>
-                <p class="reserve__price">2 500 ₽</p>
-                <button class="shadowBtn reserveBtn persPopUp" id="standard" data-price="2500"
-                        data-action="#reserve_form">ЗАБРОНИРОВАТЬ
-                </button>
-            </div>
-            <div class="reserve__imgWrap col-12 col-md-6" style="background-image: url('/images/5.jpg')"></div>
-        </div>
-        <div class="reserve__row flex flex-wrap flex-row-reverse">
-            <div class="reserve__text flex flex-column justify-content-between align-items-center col-12 col-md-6">
-                <h3 class="reserve__blockTitle">VIP-ЛЕЖАКИ</h3>
-                <p class="reserve__blockDescription">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea
-                </p>
-                <p class="reserve__price">2 500 ₽</p>
-                <button class="shadowBtn reserveBtn persPopUp" id="vip" data-price="2500"
-                        data-action="#reserve_form">ЗАБРОНИРОВАТЬ
-                </button>
-            </div>
-            <div class="reserve__imgWrap col-12 col-md-6" style="background-image: url('/images/4.jpg')"></div>
-        </div>
-        <div class="reserve__row flex flex-wrap">
-            <div class="reserve__text flex flex-column justify-content-between align-items-center col-12 col-md-6">
-                <h3 class="reserve__blockTitle">ЭКОНОМ</h3>
-                <p class="reserve__blockDescription">
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt
-                    ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                    laboris nisi ut aliquip ex ea
-                </p>
-                <p class="reserve__price">2 500 ₽</p>
-                <button class="shadowBtn reserveBtn persPopUp" id="economy" data-price="2500"
-                        data-action="#reserve_form">ЗАБРОНИРОВАТЬ
-                </button>
-            </div>
-            <div class="reserve__imgWrap col-12 col-md-6" style="background-image: url('/images/6.jpg')"></div>
-        </div>
+        <? if (!$places == null) {?>
+            <? foreach ($places as $key => $place) {?>
+                <div class="reserve__row flex flex-wrap <?= !($key % 2) == 0 ? 'flex-row-reverse' : '' ?> ">
+                    <div class="reserve__text flex flex-column justify-content-between align-items-center col-12 col-md-6">
+                        <h3 class="reserve__blockTitle"><?= $place['type'] ?></h3>
+                        <p class="reserve__blockDescription">
+                            <?= $place['description'] ?>
+                        </p>
+                        <p class="reserve__price"><?= number_format($place['price'], 0, ',', ' ') ?> ₽</p>
+                        <button class="shadowBtn reserveBtn persPopUp"  id="<?= $place['id'] ?>"  data-type="<?= $place['type'] ?>" data-price="<?= $place['price'] ?>"
+                                data-action="#reserve_form">ЗАБРОНИРОВАТЬ
+                        </button>
+                    </div>
+                    <div class="reserve__imgWrap col-12 col-md-6" style="background-image: url('/uploads/places/thumb_<?= $place['image']?>')"></div>
+                </div>
+            <? } ?>
+        <? } ?>
     </div>
 </div>
 <div class="galleryLine">
