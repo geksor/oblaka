@@ -14,7 +14,6 @@ return [
     'homeUrl' => '/',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-frontend',
             'baseUrl' => '',
         ],
         'user' => [
@@ -41,11 +40,6 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-                '' => 'site/index',
-                '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
-                '<action>' => 'site/<action>',
-            ],
         ],
     ],
     'params' => $params,

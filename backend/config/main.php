@@ -15,7 +15,6 @@ return [
     'homeUrl' => '/admin',
     'components' => [
         'request' => [
-            'csrfParam' => '_csrf-backend',
             'baseUrl' => '/admin',
         ],
         'user' => [
@@ -42,10 +41,6 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-                '' => 'site/index',
-                '<controller:\w+>/<action:\w+>/' => '<controller>/<action>',
-            ],
         ],
     ],
     'params' => $params,
