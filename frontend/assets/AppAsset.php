@@ -25,6 +25,7 @@ class AppAsset extends AssetBundle
     public $js = [
         "js/vendor/jq_cookie.js",
         "js/vendor/jquery-ui.min.js",
+        "js/vendor/jquery.fancybox.min.js",
         "js/vendor/slick.min.js",
         "js/vendor/jquery.maskedinput.min.js",
         "js/vendor/slideout.js",

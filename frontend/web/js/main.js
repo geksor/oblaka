@@ -22,6 +22,14 @@ var agreeAdres = '';
     });
 //endNewAgree
 //reserveForm
+    function splitToDigits(number) {
+        var digits = [];
+        while (number) {
+            digits.push(number % 10);
+            number = Math.floor(number/10);
+        }
+        return digits;
+    }
     var price;
     var totalPrice = function (price) {
         var total = price * $('#count_inp').val();
@@ -31,11 +39,33 @@ var agreeAdres = '';
     var $countSelect = $('.countSelect');
     //endCount
 //endReserveForm
+    function getCount(id){
+        $.ajax({
+            type: "POST",
+            url: "site/places?id="+id,
+            dataType: 'json',
+            error: function () {
+                console.log('error')
+            },
+            success: function (data) {
+                var count = splitToDigits(data);
+                $('#one').text(0).text(count[0]);
+                $('#ten').text(0).text(count[1]);
+                $('#hundred').text(0).text(count[2]);
+            }
+        });
+    }
+    var placeId;
     $personalPopUp.on('click', function () {
         var openForm = $(this).data('action');
         $closeForm = $(openForm);
         //reserveForm
+
+        placeId = $(this).attr('id');
+        getCount(placeId);
+
         price = $(this).data('price');
+
         var $class = $('#class');
         var $classShow = $('#class_show');
         $class.val($(this).attr('id'));
@@ -47,7 +77,8 @@ var agreeAdres = '';
     });
     $('.close').on('click', function () {
         $closeForm.css('display', 'none');
-        $('.page').removeClass('panel-open')
+        $('.page').removeClass('panel-open');
+        clearInterval();
     });
 
     $(document).on('click', function (event) {

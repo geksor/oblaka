@@ -144,14 +144,14 @@ class PlacesController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionUpload(){
-        $model = new UploadImage();
-        if(Yii::$app->request->isPost){
-            $model->upload();
-            return;
-        }
-        return $this->render('upload', ['model' => $model]);
-    }
+//    public function actionUpload(){
+//        $model = new UploadImage();
+//        if(Yii::$app->request->isPost){
+//            $model->upload();
+//            return;
+//        }
+//        return $this->render('upload', ['model' => $model]);
+//    }
 
     /**
      * Finds the Places model based on its primary key value.

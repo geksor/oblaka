@@ -1,5 +1,7 @@
 <?php
 
+use yii\helpers\Html;
+
 /* @var $this yii\web\View */
 /* @var $comments app\controllers\ */
 /* @var $places app\controllers\ */
@@ -86,7 +88,11 @@ $this->title = 'Облака';
                             <?= $place['description'] ?>
                         </p>
                         <p class="reserve__price"><?= number_format($place['price'], 0, ',', ' ') ?> ₽</p>
-                        <button class="shadowBtn reserveBtn persPopUp"  id="<?= $place['id'] ?>"  data-type="<?= $place['type'] ?>" data-price="<?= $place['price'] ?>"
+                        <button class="shadowBtn reserveBtn persPopUp"
+                                id="<?= $place['id'] ?>"
+                                data-type="<?= $place['type'] ?>"
+                                data-price="<?= $place['price'] ?>"
+                                data-count="<?= $place['count'] ?>"
                                 data-action="#reserve_form">ЗАБРОНИРОВАТЬ
                         </button>
                     </div>
@@ -195,19 +201,29 @@ $this->title = 'Облака';
             <div class="col-12 col-lg-6">
                 <div class="about__imgBlock row">
                     <div class="col-6">
-                        <div class="about__imgWrap" style="background-image: url('/images/19.jpg')"></div>
+                        <div class="about__imgWrap relative">
+                            <?= Html::a(Html::img('/images/19.jpg', ['style' => 'width:100%']),'/images/19.jpg', ['data-fancybox' => 'fancybox', 'data-caption' => '', 'class' => 'absolute_100prc']); ?>
+                        </div>
                     </div>
                     <div class="col-6">
-                        <div class="about__imgWrap" style="background-image: url('/images/20.jpg')"></div>
+                        <div class="about__imgWrap relative">
+                            <?= Html::a(Html::img('/images/20.jpg', ['style' => 'width:100%']),'/images/20.jpg', ['data-fancybox' => 'fancybox', 'data-caption' => '', 'class' => 'absolute_100prc']); ?>
+                        </div>
                     </div>
                     <div class="col-4">
-                        <div class="about__imgWrap" style="background-image: url('/images/21.jpg')"></div>
+                        <div class="about__imgWrap relative" style="background-image: url('/images/21.jpg')">
+                            <?= Html::a(Html::img('/images/21.jpg', ['style' => 'width:100%']),'/images/21.jpg', ['data-fancybox' => 'fancybox', 'data-caption' => '', 'class' => 'absolute_100prc']); ?>
+                        </div>
                     </div>
                     <div class="col-4">
-                        <div class="about__imgWrap" style="background-image: url('/images/22.jpg')"></div>
+                        <div class="about__imgWrap relative" style="background-image: url('/images/22.jpg')">
+                            <?= Html::a(Html::img('/images/22.jpg', ['style' => 'width:100%']),'/images/22.jpg', ['data-fancybox' => 'fancybox', 'data-caption' => '', 'class' => 'absolute_100prc']); ?>
+                        </div>
                     </div>
                     <div class="col-4">
-                        <div class="about__imgWrap" style="background-image: url('/images/23.jpg')"></div>
+                        <div class="about__imgWrap relative" style="background-image: url('/images/23.jpg')">
+                            <?= Html::a(Html::img('/images/23.jpg', ['style' => 'width:100%']),'/images/23.jpg', ['data-fancybox' => 'fancybox', 'data-caption' => '', 'class' => 'absolute_100prc']); ?>
+                        </div>
                     </div>
                 </div>
             </div>

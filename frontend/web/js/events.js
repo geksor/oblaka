@@ -17,6 +17,7 @@ var reEvents = function (){
     });
     $('#count_inp').on('input', function () {
         $countSelect.removeClass('active');
+        getCount(placeId);
         var inpVal;
         var totalCount = parseInt($('#hundred').text() + $('#ten').text() + $('#one').text());
         if ($(this).val() > totalCount){

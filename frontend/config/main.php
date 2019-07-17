@@ -13,6 +13,15 @@ return [
     'controllerNamespace' => 'frontend\controllers',
     'homeUrl' => '/',
     'components' => [
+        'yakassa' => [
+            'class' => 'kroshilin\yakassa\YaKassa',
+            'paymentAction' => YII_DEBUG ? 'http://oblaka.local/' : 'https://money.yandex.ru/eshop.xml',
+            'shopPassword' => 'test_8_N7Q3cbnV0ffWYfHExB22iLZjzEhESrGs9-UNVS6wk',
+            'securityType' => 'MD5',
+            'shopId' => '525263',
+            'scId' => '525',
+            'currency' => '10643'
+        ],
         'request' => [
             'baseUrl' => '',
         ],
@@ -40,6 +49,10 @@ return [
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
+            'rules' => [
+                '/' => 'site/index',
+                '<action>' => 'site/<action>',
+            ],
         ],
     ],
     'params' => $params,

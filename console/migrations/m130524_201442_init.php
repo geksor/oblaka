@@ -31,6 +31,7 @@ class m130524_201442_init extends Migration
             'text' => $this->text()->notNull()->comment('Текст отзыва'),
             'date' => $this->integer(11)->notNull()->comment('Дата добавления'),
             'publish' => $this->tinyInteger(1)->notNull()->defaultValue(0)->comment('Состояние'),
+            'view' => $this->tinyInteger(1)->notNull()->defaultValue(0),
         ], $tableOptions);
     }
 
